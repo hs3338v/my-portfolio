@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skill</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+<style>
+  :root{
+    --bg:#f3f1ec;
+    --ink:#161513;
+    --ink-soft:#6b675f;
+    --line:#e6e2d9;
+    --card:#ffffff;
+    --pill-bg:#e9e5db;
+    --sp5:40px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Pretendard',sans-serif;
+    word-break:keep-all;
+    line-height:1.6;
+  }
+
+  .wrap{max-width:1360px;margin:0 auto;padding:0 24px}
+  .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+
+  /* 스타일 C 공통 카드 — radius/그림자 값 유지 */
+  .card{
+    background:var(--card);
+    border-radius:22px;
+    box-shadow:0 2px 10px rgba(22,21,19,.05);
+    padding:var(--sp5);
+  }
+
+  .pill{
+    display:inline-block;
+    padding:6px 14px;
+    border-radius:999px;
+    background:var(--pill-bg);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.08em;
+  }
+
+  /* ===== Skill ===== */
+  .skill{padding:100px 0}
+  .skill-head{margin-bottom:32px}
+  .skill-head h2{font-size:clamp(32px,4vw,48px);font-weight:800;margin-top:16px;line-height:1.25}
+  .skill-head p{color:var(--ink-soft);margin-top:12px;font-size:17px}
+
+  /* 벤토 배치: 시작 위치 없이 span만 사용 */
+  .s-lg{grid-column:span 6}
+  .s-sm{grid-column:span 3}
+
+  .skill-card{display:flex;flex-direction:column;min-height:240px}
+  .skill-top{display:flex;justify-content:space-between;align-items:center}
+  .skill-no{font-size:14px;font-weight:700;color:var(--ink-soft)}
+  .skill-level{font-size:13px;font-weight:600;color:var(--ink-soft)}
+  .skill-card h3{font-size:24px;font-weight:800;margin-top:auto;padding-top:28px}
+  .skill-card p{color:var(--ink-soft);margin-top:8px;font-size:15px}
+
+  .bar{height:6px;border-radius:999px;background:var(--bg);margin-top:20px;overflow:hidden}
+  .bar span{display:block;height:100%;border-radius:999px;background:var(--ink)}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .chips li{list-style:none;padding:6px 14px;border-radius:999px;background:var(--pill-bg);font-size:13px;font-weight:600}
+
+  /* 강조 카드 (진한 배경) */
+  .skill-card.dark{background:var(--ink);color:#fff}
+  .skill-card.dark .skill-no,
+  .skill-card.dark .skill-level,
+  .skill-card.dark p{color:rgba(255,255,255,.65)}
+  .skill-card.dark .bar{background:rgba(255,255,255,.15)}
+  .skill-card.dark .bar span{background:#fff}
+  .skill-card.dark .chips li{background:rgba(255,255,255,.12)}
+
+  @media (max-width:1024px){
+    .s-lg{grid-column:span 12}
+    .s-sm{grid-column:span 6}
+  }
+  @media (max-width:640px){
+    .s-sm{grid-column:span 12}
+    .card{padding:28px}
+    .skill{padding:64px 0}
+  }
+</style>
+</head>
+<body>
+
+<section class="skill" id="skill">
+  <div class="wrap">
+    <div class="skill-head">
+      <span class="pill">SKILL</span>
+      <h2>제가 다룰 수 있는 도구들</h2>
+      <p>프로젝트에서 직접 써 보며 익힌 기술과 도구입니다.</p>
+    </div>
+
+    <div class="grid">
+      <!-- 1행: 큰 카드 + 작은 카드 2개 -->
+      <article class="card skill-card s-lg dark">
+        <div class="skill-top"><span class="skill-no">01</span><span class="skill-level">주력</span></div>
+        <h3>HTML · CSS</h3>
+        <p>시맨틱 마크업과 Flex·Grid 레이아웃으로 화면을 구성합니다.</p>
+        <div class="bar"><span style="width:90%"></span></div>
+        <ul class="chips"><li>Grid</li><li>Flexbox</li><li>반응형</li></ul>
+      </article>
+
+      <article class="card skill-card s-sm">
+        <div class="skill-top"><span class="skill-no">02</span><span class="skill-level">중급</span></div>
+        <h3>JavaScript</h3>
+        <p>인터랙션과 간단한 동적 기능을 구현합니다.</p>
+        <div class="bar"><span style="width:65%"></span></div>
+      </article>
+
+      <article class="card skill-card s-sm">
+        <div class="skill-top"><span class="skill-no">03</span><span class="skill-level">중급</span></div>
+        <h3>Figma</h3>
+        <p>와이어프레임부터 시안까지 직접 그립니다.</p>
+        <div class="bar"><span style="width:70%"></span></div>
+      </article>
+
+      <!-- 2행: 작은 카드 2개 + 큰 카드 -->
+      <article class="card skill-card s-sm">
+        <div class="skill-top"><span class="skill-no">04</span><span class="skill-level">기초</span></div>
+        <h3>Photoshop</h3>
+        <p>사진 보정과 배너 이미지를 만듭니다.</p>
+        <div class="bar"><span style="width:50%"></span></div>
+      </article>
+
+      <article class="card skill-card s-sm">
+        <div class="skill-top"><span class="skill-no">05</span><span class="skill-level">기초</span></div>
+        <h3>Git</h3>
+        <p>버전 관리와 협업 흐름을 익히는 중입니다.</p>
+        <div class="bar"><span style="width:45%"></span></div>
+      </article>
+
+      <article class="card skill-card s-lg">
+        <div class="skill-top"><span class="skill-no">06</span><span class="skill-level">활용 중</span></div>
+        <h3>AI 바이브코딩</h3>
+        <p>AI 도구와 대화하며 아이디어를 빠르게 코드로 옮깁니다.</p>
+        <div class="bar"><span style="width:75%"></span></div>
+        <ul class="chips"><li>Claude Code</li><li>프롬프트 설계</li><li>빠른 프로토타입</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
